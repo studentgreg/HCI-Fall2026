@@ -28,4 +28,25 @@ if cups > 5:
 
 st.info("Tip: use decaf after 3pm.")
 
-#
+# Sep 22nd 2026 - Streamlit, part 2
+
+st.sidebar.title("About Us")
+units = st.sidebar.radio("Units", ["Cups", "ml"])
+
+left, right = st.columns(2)
+
+left.metric("Cups", cups)
+right.metric("Caffeine (mg)", cups * 95)
+
+with st.expander("How is caffeine estimated?"):
+    st.write("Caffeine is estimated to be 95mg per cup of coffee.")
+
+tab1, tab2, tab3 = st.tabs(["Mission","Contact Us","Media"])
+
+with tab1:
+    st.write("Our mission is to make coffee more accessible.")
+    st.warning("Always consult the caffeine label.")
+with tab2:
+    st.write("Email us at gmuradre@fiu.edu")
+with tab3:
+    st.success("Follow us on social media @fiu_coffee")
